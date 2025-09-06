@@ -1,0 +1,25 @@
+import pepe.*
+import bonus.*
+
+describe "Caso de prueba Pepe, Roque y Ernesto" {
+
+  method initialize() {
+  pepe.categoria(medioTiempo)
+  medioTiempo.categoriaBase(cadete)
+  pepe.bonoResultado(porcentaje)
+  pepe.bonoPresentismo(demagogico)
+  pepe.faltas(1)
+
+  roque.bonoResultado(montoFijo)
+
+  ernesto.companero(pepe)
+  ernesto.bonoPresentismo(ajuste)
+  }
+  test "Caso 1: Pepe: medio tiempo (cadete), bono resultado porcentaje, bono presentismo demagógico, 1 falta
+                Roque: bono resultado monto fijo
+                Ernesto: compañero = Pepe, bono presentismo = ajuste" {
+  assert.equals(11500, pepe.sueldo())
+  assert.equals(37800, roque.sueldo())
+  assert.equals(10100, ernesto.sueldo())
+  }
+}
