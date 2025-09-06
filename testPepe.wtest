@@ -1,16 +1,56 @@
-import pepe.*   // importa todos tus objetos
+import pepe.*    
 
-describe "Sueldo de Pepe" {
+describe "Sueldo de Pepe 1" {
 
   method initialize() {
-    pepe.categoria = cadete
-    pepe.bonoResultado = montoFijo
-    pepe.bonoPresentismo = normal
-    pepe.faltas = 3
+    pepe.categoria(cadete)
+    pepe.bonoResultado(montoFijo)
+    pepe.bonoPresentismo(normal)
+    pepe.faltas(3)
   }
 
-  test "Caso 1: cadete + monto fijo + normal con 3 faltas = 20800" {
+  test "Caso 1: Categoria: Cadete, Bonor Resultado: Monto fijo, Bono Presentismo: Normal, Faltas: 3 ,Sueldo :20800" {
     assert.equals(20800, pepe.sueldo())
   }
-
 }
+
+describe "Sueldo de Pepe 2" {
+
+  method initialize() {
+    pepe.categoria(gerente)
+    pepe.bonoResultado(porcentaje)
+    pepe.bonoPresentismo(nulo)
+    pepe.faltas(3)
+  }
+
+  test "Caso 2: Categoria: Gerente, Bonor Resultado: Porcentaje, Bono Presentismo: Nulo, Sueldo :16500" {
+    assert.equals(16500, pepe.sueldo())
+  }
+}
+describe "Sueldo de Pepe 3" {
+
+  method initialize() {
+    pepe.categoria(cadete)
+    pepe.bonoResultado(porcentaje)
+    pepe.bonoPresentismo(normal)
+    pepe.faltas(0)
+  }
+
+  test "Caso 3: Categoria: Cadete, Bonor Resultado: Porcentaje, Bono Presentismo: Normal, Faltas: 0, Sueldo :24000" {
+    assert.equals(24000, pepe.sueldo())
+  }
+}
+describe "Sueldo de Pepe 4" {
+
+  method initialize() {
+    pepe.categoria(cadete)
+    pepe.bonoResultado(porcentaje)
+    pepe.bonoPresentismo(normal)
+    pepe.faltas(1)
+  }
+
+  test "Caso 4: Categoria: Cadete, Bonor Resultado: Porcentaje, Bono Presentismo: Normal, Faltas: 1, Sueldo :23000" {
+    assert.equals(23000, pepe.sueldo())
+  }
+}
+
